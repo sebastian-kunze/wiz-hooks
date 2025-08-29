@@ -1,0 +1,18 @@
+[project]
+name = "wiz-hooks"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "Sebastian Kunze"},
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+[project.scripts]
+wiz-iac = "hooks.wiz_iac:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
