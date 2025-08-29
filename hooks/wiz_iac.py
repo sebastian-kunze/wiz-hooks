@@ -15,7 +15,7 @@ def main() -> int:
     # The command to be executed.
     command = ['wizcli', 'iac', 'scan', '--path', '.']
 
-    print(f"Executing command: "{' '.join(command)}" in directory: {script_dir}")
+    print(f"Executing command: \"{' '.join(command)}\" in directory: {script_dir}")
 
     try:
         exit_code = PASS
