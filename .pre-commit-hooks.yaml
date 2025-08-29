@@ -1,0 +1,7 @@
+-   id: wiz-iac
+    name: '✨ Wiz - Scan for IaC configuration issues'
+    description: prevents giant files from being committed.
+    entry: wiz-iac
+    language: python
+    pass_filenames: false
+    # stages: [pre-commit, pre-push, manual]
