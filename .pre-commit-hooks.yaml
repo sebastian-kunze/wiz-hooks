@@ -4,4 +4,5 @@
     entry: wiz-iac
     language: python
     pass_filenames: false
+    args: [--policy-name, 'Default IaC policy']
     # stages: [pre-commit, pre-push, manual]

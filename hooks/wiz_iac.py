@@ -1,6 +1,7 @@
 
 import os
 import subprocess
+import argparse
 
 PASS = 0
 FAIL = 1
@@ -9,13 +10,19 @@ def main() -> int:
     """
     Runs the 'wizcli iac scan' command in the directory where this script is located.
     """
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--policy-name', help='The name of the policy to use for the scan.')
+    args = parser.parse_args()
+
     # Get the absolute path of the directory containing this script.
-    script_dir = os.path.dirname(os.path.abspath(__file__))
+    current_directory = os.getcwd()    
 
     # The command to be executed.
     command = ['wizcli', 'iac', 'scan', '--path', '.']
+    if args.policy_name:
+        command.extend(['--policy', args.policy_name])
 
-    print(f"Executing command: \"{' '.join(command)}\" in directory: {script_dir}")
+    print(f"Executing command: \"{' '.join(command)}\" in directory: {current_directory}")
 
     try:
         exit_code = PASS
@@ -23,7 +30,7 @@ def main() -> int:
         # Execute the command with the script's directory as the current working directory.
         result = subprocess.run(
             command,
-            cwd=script_dir,
+            cwd=current_directory,
             capture_output=True,
             text=True,
             check=True  # This will raise a CalledProcessError if the command returns a non-zero exit code.
